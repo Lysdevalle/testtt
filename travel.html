@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizon Voyages</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://jsdelivr.net" rel="stylesheet">
+  
+  <!-- Google Fonts : Plus Sans pour un esprit d'aventure moderne et épuré -->
+  <link href="https://googleapis.com" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary-travel: #0d6efd; /* Bleu évasion */
+      --dark-travel: #0f172a;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--dark-travel);
+      background-color: #f8fafc;
+    }
+
+    /* Hero Section */
+    .hero-travel {
+      background: linear-gradient(rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.65)), 
+                  url('https://unsplash.com') no-repeat center center/cover;
+      padding: 160px 0;
+    }
+
+    /* Cartes de destinations */
+    .dest-card {
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .dest-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+    }
+    .dest-img {
+      height: 220px;
+      object-fit: cover;
+    }
+
+    /* Accordéon personnalisé */
+    .accordion-item {
+      border: none;
+      margin-bottom: 12px;
+      border-radius: 8px !important;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .accordion-button:not(.collapsed) {
+      background-color: rgba(13, 110, 253, 0.08);
+      color: var(--primary-travel);
+      box-shadow: none;
+    }
+    .accordion-button:focus {
+      box-shadow: none;
+    }
+
+    /* Formulaire */
+    .form-box {
+      background-color: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+    }
+    .form-control, .form-select {
+      border-radius: 8px;
+      padding: 10px 14px;
+      border: 1px solid #cbd5e1;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--primary-travel);
+      box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+    }
+    .btn-pill {
+      border-radius: 50px;
+      padding: 10px 28px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-primary" href="#">🌍 Horizon Voyages</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#travelNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="travelNav">
+        <ul class="navbar-nav gap-2">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#destinations">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tours">Tours</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 2. Hero Section (Remplacement moderne du Jumbotron) -->
+  <header id="home" class="hero-travel text-center text-white">
+    <div class="container py-4">
+      <h1 class="display-4 fw-bold">Explorez le Monde avec Nous</h1>
+      <p class="fs-5 text-white-50 my-3">Découvrez des paysages uniques et organisez des circuits sur mesure.</p>
+      <a href="#destinations" class="btn btn-primary btn-pill btn-lg mt-3 shadow">Découvrir les Offres</a>
+    </div>
+  </header>
+
+  <!-- 3. Destinations Section (Bootstrap Cards & Grid Layout) -->
+  <section id="destinations" class="py-5">
+    <div class="container py-4">
+      <h2 class="fw-bold text-center mb-5">Destinations Tendances</h2>
+      <div class="row g-4">
+        <!-- Carte 1 -->
+        <div class="col-12 col-md-4">
+          <div class="card h-100 dest-card">
+            <img src="https://unsplash.com" class="card-img-top dest-img" alt="Maldives">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="card-title fw-bold">Les Maldives</h5>
+              <p class="card-text text-muted flex-grow-1">Des plages de sable blanc somptueuses et des bungalows privés sur pilotis.</p>
+              <a href="#" class="btn btn-outline-primary btn-sm mt-3 w-50 align-self-start">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Carte 2 -->
+        <div class="col-12 col-md-4">
+          <div class="card h-100 dest-card">
+            <img src="https://unsplash.com" class="card-img-top dest-img" alt="Kyoto">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="card-title fw-bold">Kyoto, Japon</h5>
+              <p class="card-text text-muted flex-grow-1">Plongez au cœur des traditions entre forêts de bambous et temples ancestraux.</p>
+              <a href="#" class="btn btn-outline-primary btn-sm mt-3 w-50 align-self-start">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Carte 3 -->
+        <div class="col-12 col-md-4">
+          <div class="card h-100 dest-card">
+            <img src="https://unsplash.com" class="card-img-top dest-img" alt="Santorin">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="card-title fw-bold">Santorin, Grèce</h5>
+              <p class="card-text text-muted flex-grow-1">Une architecture blanche emblématique avec panorama sur la mer Égée.</p>
+              <a href="#" class="btn btn-outline-primary btn-sm mt-3 w-50 align-self-start">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Tours Section (Bootstrap Accordion Component) -->
+  <section id="tours" class="py-5 bg-white border-top border-bottom">
+    <div class="container py-4" style="max-width: 800px;">
+      <h2 class="fw-bold text-center mb-5">Nos Packs de Circuits</h2>
+      <div class="accordion" id="travelAccordion">
+        <!-- Item 1 -->
+        <div class="accordion-item border shadow-sm">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true">
+              🎒 Circuit Exploration & Aventure
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#travelAccordion">
+            <div class="accordion-body text-muted">
+              <p>Idéal pour les amateurs de trek et de grands espaces. Cette formule comprend des sorties sportives guidées et des logements insolites.</p>
+              <a href="#" class="btn btn-link p-0 fw-bold text-decoration-none">View Details &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <!-- Item 2 -->
+        <div class="accordion-item border shadow-sm">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false">
+              ✨ Voyage Privatif Luxe & Volupté
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#travelAccordion">
+            <div class="accordion-body text-muted">
+              <p>Profitez d'hôtels d'exception, d'un accès spa thermal illimité et de vols en première classe pour une sérénité maximale.</p>
+              <a href="#" class="btn btn-link p-0 fw-bold text-decoration-none">View Details &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <!-- Item 3 -->
+        <div class="accordion-item border shadow-sm">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false">
+              🏛 Parcours Immersion Historique
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#travelAccordion">
+            <div class="accordion-body text-muted">
+              <p>Un itinéraire culturel complet accompagné par des guides experts, incluant des entrées coupe-file pour les plus grands musées régionaux.</p>
+              <a href="#" class="btn btn-link p-0 fw-bold text-decoration-none">View Details &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Contact Form Section -->
+  <section id="contact" class="py-5">
+    <div class="container py-4" style="max-width: 600px;">
+      <h2 class="fw-bold text-center mb-4">Créer un Itinéraire Personnel</h2>
+      <form class="p-4 p-md-5 form-box">
+        <div class="mb-4">
+          <label for="travelName" class="form-label text-secondary small fw-semibold">Nom Complet</label>
+          <input type="text" class="form-control" id="travelName" required>
+        </div>
+        <div class="mb-4">
+          <label for="travelEmail" class="form-label text-secondary small fw-semibold">Adresse Email</label>
+          <input type="email" class="form-control" id="travelEmail" required>
+        </div>
+        <div class="mb-4">
+          <label for="travelSelect" class="form-label text-secondary small fw-semibold">Destination Souhaitée</label>
+          <select class="form-select" id="travelSelect">
