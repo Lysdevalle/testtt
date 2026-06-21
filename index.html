@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Bistrot Gourmand</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://jsdelivr.net" rel="stylesheet">
+  
+  <!-- Google Fonts : Playfair Display pour l'élégance et Inter pour la lisibilité -->
+  <link href="https://googleapis.com" rel="stylesheet">
+  
+  <style>
+    :root {
+      --accent-color: #c9974c; /* Teinte dorée chaleureuse */
+      --dark-color: #111111;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark-color);
+      background-color: #fcfbfa;
+    }
+
+    h1, h2, h3, .navbar-brand {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Navbar */
+    .custom-navbar {
+      background-color: rgba(17, 17, 17, 0.95) !important;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .navbar-brand span {
+      color: var(--accent-color);
+    }
+    .nav-link {
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--accent-color) !important;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), 
+                  url('https://unsplash.com') no-repeat center center/cover;
+      padding: 140px 0;
+    }
+    .hero-title {
+      font-size: 3.5rem;
+    }
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--accent-color);
+    }
+
+    /* Boutons */
+    .btn-custom {
+      background-color: var(--accent-color);
+      color: white;
+      font-weight: 500;
+      padding: 12px 30px;
+      border-radius: 0;
+      transition: all 0.3s ease;
+    }
+    .btn-custom:hover {
+      background-color: #b3823b;
+      color: white;
+    }
+
+    /* Cartes du Menu */
+    .menu-card {
+      border: none;
+      border-radius: 0;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .menu-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(179, 130, 59, 0.15);
+    }
+    .menu-img-wrapper {
+      overflow: hidden;
+    }
+    .menu-img {
+      height: 240px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .menu-card:hover .menu-img {
+      transform: scale(1.05);
+    }
+    .price-tag {
+      color: var(--accent-color);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+    }
+
+    /* Décorations de titres */
+    .section-title {
+      position: relative;
+      padding-bottom: 15px;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background-color: var(--accent-color);
+    }
+
+    /* Formulaires */
+    .form-control {
+      border-radius: 0;
+      padding: 12px;
+    }
+    .form-control:focus {
+      border-color: var(--accent-color);
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Header & Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top custom-navbar">
+    <div class="container">
+      <a class="navbar-brand fs-3 fw-bold" href="#">Bistrot<span>.</span></a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-2">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 2. Hero Section -->
+  <header id="home" class="hero-section text-center text-white">
+    <div class="container">
+      <p class="hero-subtitle fs-4 mb-2">Gastronomie Authentique</p>
+      <h1 class="hero-title fw-bold mb-3">Une Expérience Culinaire Unique</h1>
+      <p class="lead text-white-50 mb-4 max-w-md mx-auto">Des ingrédients d'exception sélectionnés localement pour des instants uniques.</p>
+      <a href="#menu" class="btn btn-custom text-uppercase fs-7">Découvrir notre Carte</a>
+    </div>
+  </header>
+
+  <!-- 3. Menu Section (Grid System) -->
+  <section id="menu" class="py-5">
+    <div class="container py-4">
+      <h2 class="text-center fw-bold section-title mb-5">Notre Menu</h2>
+      <div class="row g-4">
+        <!-- Plat 1 -->
+        <div class="col-12 col-md-4">
+          <div class="card h-100 menu-card">
+            <div class="menu-img-wrapper">
+              <img src="https://unsplash.com" class="card-img-top menu-img" alt="Pizza">
+            </div>
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="card-title fw-bold">Pizza Truffe & Stracciatella</h5>
+              <p class="card-text text-muted flex-grow-1">Pâte artisanale, crème de truffe noire fraîche et basilic pourpre.</p>
+              <span class="price-tag fw-bold mt-3">18.00 €</span>
+            </div>
+          </div>
+        </div>
+        <!-- Plat 2 -->
+        <div class="col-12 col-md-4">
+          <div class="card h-100 menu-card">
+            <div class="menu-img-wrapper">
+              <img src="https://unsplash.com" class="card-img-top menu-img" alt="Salade">
+            </div>
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="card-title fw-bold">Salade Signature Équinoxe</h5>
+              <p class="card-text text-muted flex-grow-1">Quinoa rouge bio, avocats rôtis et saumon sauvage fumé.</p>
+              <span class="price-tag fw-bold mt-3">16.50 €</span>
+            </div>
+          </div>
+        </div>
+        <!-- Plat 3 -->
+        <div class="col-12 col-md-4">
+          <div class="card h-100 menu-card">
+            <div class="menu-img-wrapper">
+              <img src="https://unsplash.com" class="card-img-top menu-img" alt="Ravioli">
+            </div>
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="card-title fw-bold">Ravioles de Homard</h5>
+              <p class="card-text text-muted flex-grow-1">Farce fine de homard bleu et émulsion safranée légère.</p>
+              <span class="price-tag fw-bold mt-3">24.50 €</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. About Us Section (Two-Column Layout) -->
+  <section id="about" class="py-5 bg-white border-top border-bottom">
+    <div class="container py-4">
+      <div class="row align-items-center g-5">
+        <div class="col-12 col-md-6">
+          <img src="https://unsplash.com" class="img-fluid w-100 rounded shadow-sm" alt="Notre Cuisine">
+        </div>
+        <div class="col-12 col-md-6">
+          <h3 class="fw-bold mb-3 fs-2">Notre Histoire</h3>
+          <p class="text-muted">Depuis plus de 15 ans, notre maison familiale met un point d'honneur à magnifier le produit brut. En travaillant avec des maraîchers locaux, nous assurons une fraîcheur absolue.</p>
+          <p class="text-muted">Chaque assiette raconte une histoire de passion, d'artisanat et d'amour pour le goût.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container py-4" style="max-width: 600px;">
+      <h2 class="text-center fw-bold section-title mb-5">Nous Contacter</h2>
+      <form class="p-4 p-md-5 bg-white border shadow-sm">
+        <div class="mb-4">
+          <label for="name" class="form-label text-muted small fw-semibold">NOM COMPLET</label>
+          <input type="text" class="form-control" id="name" required>
+        </div>
+        <div class="mb-4">
+          <label for="email" class="form-label text-muted small fw-semibold">ADRESSE EMAIL</label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="mb-4">
+          <label for="message" class="form-label text-muted small fw-semibold">VOTRE MESSAGE</label>
+          <textarea class="form-control" id="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-custom w-100 text-uppercase">Envoyer le Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 6. Footer -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <p class="mb-0 text-white-50 small">&copy; 2026 Le Bistrot Gourmand. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://jsdelivr.net"></script>
+</body>
+</html>
